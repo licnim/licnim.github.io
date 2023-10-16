@@ -2,9 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "What’s in a (user)name?",
+    "title": "About",
     "section": "",
-    "text": "The key metric for an idol’s success is most often thought to be their fame. Where Instagram has become a hotspot for K-pop idols to communicate with fans, show off their brand sponsorships. and express themselves, follower counts have also become a quick way to quantify idols’ fame, and give an estimate of their popularity.\nBut, how exactly do idols gain followers through their profiles?\nMy question is as such: What is the optimal Instagram profile for a K-pop idol to achieve the most number of followers?\nArguably, the most important part of an Instagram profile is the username.\nThe maximum length of an Instagram username is 30 characters, within which one has the flexibility to put any letters, digits, and combinations of underscores and periods.\nI want to study how K-pop idols have made use of these restrictions to create their usernames, and from that, how the designs of their usernames might have affected their follower counts, alongside the influence of external factors, like gender, age, and years in the industry.\nI will ultimately deduce what characteristics are more likely to attract higher numbers of followers, and create a web app that lets one create a fake idol profile and generate an predicted amount of followers.\n\nLibraries used\n\nlibrary(tidyverse)\nlibrary(stringr) \nlibrary(ggmisc)\n\n\n\nDataset used\n“Kpop Idol Instagram Followers” retrieved from: Faisal Amir on Kaggle\n\ndata &lt;- read_csv(\"kpop_idol_followers.csv\")\n\n\n\nVariables analysed\n\nCharacteristics of a username\n\nLength (in characters)\nPresence of and number of special symbols (periods (“.”), underscores(“_”), or both)\nPresence of and number of digits\nVerification-related words: “official”\nIdentity-related words: inclusion of group name or stage name\n\n\n\nCharacteristics of an idol\n\nGender\nAge\nCareer length (in years)\nNationality\nCompany reputation"
+    "text": "Hello, I’m Nic, a Year 1 student majoring in CNM.\nHere is a picture of a cat I drew:"
   },
   {
     "objectID": "about.html",
@@ -54,5 +54,12 @@
     "title": "What’s in a (user)name?",
     "section": "",
     "text": "The key metric for an idol’s success is most often thought to be their fame. Where Instagram has become a hotspot for K-pop idols to communicate with fans, show off their brand sponsorships. and express themselves, follower counts have also become a quick way to quantify idols’ fame, and give an estimate of their popularity.\nBut, how exactly do idols gain followers through their profiles?\nMy question is as such: What is the optimal Instagram profile for a K-pop idol to achieve the most number of followers?\nArguably, the most important part of an Instagram profile is the username.\nThe maximum length of an Instagram username is 30 characters, within which one has the flexibility to put any letters, digits, and combinations of underscores and periods.\nI want to study how K-pop idols have made use of these restrictions to create their usernames, and from that, how the designs of their usernames might have affected their follower counts, alongside the influence of external factors, like gender, age, and years in the industry.\nI will ultimately deduce what characteristics are more likely to attract higher numbers of followers, and create a web app that lets one create a fake idol profile and generate an predicted amount of followers.\n\nLibraries used\n\nlibrary(tidyverse)\nlibrary(stringr) \nlibrary(ggmisc)\n\n\n\nDataset used\n“Kpop Idol Instagram Followers” retrieved from: Faisal Amir on Kaggle\n\ndata &lt;- read_csv(\"kpop_idol_followers.csv\")\n\n\n\nVariables analysed\n\nCharacteristics of a username\n\nLength (in characters)\nPresence of and number of special symbols (periods (“.”), underscores(“_”), or both)\nPresence of and number of digits\nVerification-related words: “official”\nIdentity-related words: inclusion of group name or stage name\n\n\n\nCharacteristics of an idol\n\nGender\nAge\nCareer length (in years)\nNationality\nCompany reputation"
+  },
+  {
+    "objectID": "index.html#self-introduction",
+    "href": "index.html#self-introduction",
+    "title": "About",
+    "section": "",
+    "text": "Hello, I’m Nic, a Year 1 student majoring in CNM.\nHere is a picture of a cat I drew:"
   }
 ]
