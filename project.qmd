@@ -3,6 +3,10 @@ title: "What's in a (user)name?"
 subtitle: "A two-part analysis of k-pop idols' Instagram follower counts and a derivative interactive app."
 ---
 
+![](https://i.pinimg.com/originals/95/16/e9/9516e9d99571ea713104de50a36650ae.gif)
+
+\
+
 The key metric for an idol's success is most often thought to be their fame. Where Instagram has become a hotspot for K-pop idols to communicate with fans, show off their brand sponsorships. and express themselves, follower counts have also become a quick way to quantify idols' fame, and give an estimate of their popularity.
 
 But, how exactly do idols gain followers through their profiles?
@@ -13,11 +17,9 @@ Arguably, the most important part of an Instagram profile is the username.
 
 The maximum length of an Instagram username is 30 characters, within which one has the flexibility to put any letters, digits, and combinations of underscores and periods.
 
-I want to study how K-pop idols have made use of these restrictions to create their usernames, and from that, how the designs of their usernames might have affected their follower counts.
+I want to study how K-pop idols have made use of these restrictions to create their usernames, and from that, how the designs of their usernames might have affected their follower counts, alongside the influence of external factors, like gender, age, and years in the industry.
 
-However, usernames are not the only factors affecting one's Instagram fame. There are external factors, like gender, age, and years in the industry. These factors will also be studied.
-
-I will ultimately deduce the trends of what characteristics are more likely to attract higher numbers of followers, and create a web app that lets one create a fake idol profile and receive an appropriate amount of followers according to my predictions.
+I will ultimately deduce what characteristics are more likely to attract higher numbers of followers, and create a web app that lets one create a fake idol profile and generate an predicted amount of followers.
 
 ### Libraries used
 
@@ -61,4 +63,4 @@ data <- read_csv("kpop_idol_followers.csv")
 
 -   Nationality
 
--   Company
+-   Company reputation

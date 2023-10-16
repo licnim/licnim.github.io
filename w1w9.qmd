@@ -1,0 +1,6 @@
+---
+format: html
+editor: visual
+---
+
+As linked [here](https://github.com/licnim/compmedlit).

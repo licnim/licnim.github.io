@@ -5,13 +5,21 @@ website:
   title: "licnim.github.io"
   navbar:
     left:
-      - href: index.qmd
-        text: Home
       - about.qmd
+      - href: project.qmd
+        text: Project Page
+      - href: w1w9.qmd
+        text: Week 1 to 9
+      - href: fun.qmd
+        text: Bored?
+       
 
 format:
   html:
-    theme: vapor
+    theme: darkly
+    #theme: quartz
+    #mainfont: fantasy
+    #monofont: cursive
     css: styles.css
     toc: true
 

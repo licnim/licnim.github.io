@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>licnim.github.io - About</title>
+<title>licnim.github.io - What’s in a (user)name?</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -81,11 +115,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="./about.html" rel="" target="">
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./index.html" rel="" target="">
+    <a class="nav-link active" href="./project.html" rel="" target="" aria-current="page">
  <span class="menu-text">Project Page</span></a>
   </li>  
   <li class="nav-item">
@@ -112,7 +146,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#self-introduction" id="toc-self-introduction" class="nav-link active" data-scroll-target="#self-introduction">Self-introduction</a></li>
+  <li><a href="#libraries-used" id="toc-libraries-used" class="nav-link active" data-scroll-target="#libraries-used">Libraries used</a></li>
+  <li><a href="#dataset-used" id="toc-dataset-used" class="nav-link" data-scroll-target="#dataset-used">Dataset used</a></li>
+  <li><a href="#variables-analysed" id="toc-variables-analysed" class="nav-link" data-scroll-target="#variables-analysed">Variables analysed</a></li>
   </ul>
 </nav>
     </div>
@@ -121,7 +157,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">About</h1>
+<h1 class="title">What’s in a (user)name?</h1>
+<p class="subtitle lead">A two-part analysis of k-pop idols’ Instagram follower counts and a derivative interactive app.</p>
 </div>
 
 
@@ -136,13 +173,55 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="self-introduction" class="level2">
-<h2 class="anchored" data-anchor-id="self-introduction">Self-introduction</h2>
-<p>Hello, I’m Nic, a Year 1 student majoring in CNM.</p>
-<p>Here is a picture of a cat I drew:</p>
-<p><img src="images/ .JPG" class="img-fluid" width="855"></p>
+<p><img src="https://i.pinimg.com/originals/95/16/e9/9516e9d99571ea713104de50a36650ae.gif" class="img-fluid"></p>
+<p><br>
+</p>
+<p>The key metric for an idol’s success is most often thought to be their fame. Where Instagram has become a hotspot for K-pop idols to communicate with fans, show off their brand sponsorships. and express themselves, follower counts have also become a quick way to quantify idols’ fame, and give an estimate of their popularity.</p>
+<p>But, how exactly do idols gain followers through their profiles?</p>
+<p><strong>My question is as such: What is the optimal Instagram profile for a K-pop idol to achieve the most number of followers?</strong></p>
+<p>Arguably, the most important part of an Instagram profile is the username.</p>
+<p>The maximum length of an Instagram username is 30 characters, within which one has the flexibility to put any letters, digits, and combinations of underscores and periods.</p>
+<p>I want to study how K-pop idols have made use of these restrictions to create their usernames, and from that, how the designs of their usernames might have affected their follower counts, alongside the influence of external factors, like gender, age, and years in the industry.</p>
+<p>I will ultimately deduce what characteristics are more likely to attract higher numbers of followers, and create a web app that lets one create a fake idol profile and generate an predicted amount of followers.</p>
+<section id="libraries-used" class="level3">
+<h3 class="anchored" data-anchor-id="libraries-used">Libraries used</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr) </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggmisc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="dataset-used" class="level3">
+<h3 class="anchored" data-anchor-id="dataset-used">Dataset used</h3>
+<p>“Kpop Idol Instagram Followers” retrieved from: <a href="https://www.kaggle.com/datasets/faisalamir/kpop-idol-followers">Faisal Amir on Kaggle</a></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"kpop_idol_followers.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="variables-analysed" class="level3">
+<h3 class="anchored" data-anchor-id="variables-analysed">Variables analysed</h3>
+<section id="characteristics-of-a-username" class="level4">
+<h4 class="anchored" data-anchor-id="characteristics-of-a-username">Characteristics of a username</h4>
+<ul>
+<li><p>Length (in characters)</p></li>
+<li><p>Presence of and number of special symbols (periods (“.”), underscores(“_”), or both)</p></li>
+<li><p>Presence of and number of digits</p></li>
+<li><p>Verification-related words: “official”</p></li>
+<li><p>Identity-related words: inclusion of group name or stage name</p></li>
+</ul>
+</section>
+<section id="characteristics-of-an-idol" class="level4">
+<h4 class="anchored" data-anchor-id="characteristics-of-an-idol">Characteristics of an idol</h4>
+<ul>
+<li><p>Gender</p></li>
+<li><p>Age</p></li>
+<li><p>Career length (in years)</p></li>
+<li><p>Nationality</p></li>
+<li><p>Company reputation</p></li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

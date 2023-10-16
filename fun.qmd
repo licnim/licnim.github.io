@@ -1,0 +1,8 @@
+---
+format: html
+editor: visual
+---
+
+```{=html}
+<iframe frameborder="0" scrolling="no" src="https://mczak.com/code/sudoku/suframe/" style="border:0px solid #eee; overflow:hidden; width:400px; height:500px;" width="400"></iframe>
+```

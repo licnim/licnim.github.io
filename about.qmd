@@ -2,8 +2,10 @@
 title: "About"
 ---
 
-About this site
+## Self-introduction
 
-```{r}
-1 + 1
-```
+Hello, I'm Nic, a Year 1 student majoring in CNM.
+
+Here is a picture of a cat I drew:
+
+![](images/ .JPG){width="855"}
