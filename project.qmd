@@ -64,3 +64,8 @@ data <- read_csv("kpop_idol_followers.csv")
 -   Nationality
 
 -   Company reputation
+
+
+```{=html}
+<iframe height="400" width="100%" frameborder="no" src="https://licnim.shinyapps.io/ig_generator/" </iframe>
+```
