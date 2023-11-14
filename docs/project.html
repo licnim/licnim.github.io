@@ -115,10 +115,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html" rel="" target="">
- <span class="menu-text">About</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link active" href="./project.html" rel="" target="" aria-current="page">
  <span class="menu-text">Project Page</span></a>
   </li>  
@@ -148,7 +144,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#libraries-used" id="toc-libraries-used" class="nav-link active" data-scroll-target="#libraries-used">Libraries used</a></li>
   <li><a href="#dataset-used" id="toc-dataset-used" class="nav-link" data-scroll-target="#dataset-used">Dataset used</a></li>
-  <li><a href="#variables-analysed" id="toc-variables-analysed" class="nav-link" data-scroll-target="#variables-analysed">Variables analysed</a></li>
   </ul>
 </nav>
     </div>
@@ -197,11 +192,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"kpop_idol_followers.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="variables-analysed" class="level3">
-<h3 class="anchored" data-anchor-id="variables-analysed">Variables analysed</h3>
-<section id="characteristics-of-a-username" class="level4">
-<h4 class="anchored" data-anchor-id="characteristics-of-a-username">Characteristics of a username</h4>
+<p>Let us first examine our independent variable, the number of followers, before exploring the dependent variables:</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="project_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>As observed, we have a relatively small sample size in comparison to the large range of followers. For ease of visuals while plotting graphs and because comparisons of number of followers, rather than their individual counts, are more important in my analysis, much of my graphs will be on the logarithmic log2 scale.</p>
+<p>Now, moving on the dependent variables, I have elected to split them into two categories: username-based or idol-based.</p>
+<section id="username-based-characteristics-of-a-username" class="level4">
+<h4 class="anchored" data-anchor-id="username-based-characteristics-of-a-username">Username-based (Characteristics of a username):</h4>
 <ul>
 <li><p>Length (in characters)</p></li>
 <li><p>Presence of and number of special symbols (periods (“.”), underscores(“_”), or both)</p></li>
@@ -210,8 +210,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Identity-related words: inclusion of group name or stage name</p></li>
 </ul>
 </section>
-<section id="characteristics-of-an-idol" class="level4">
-<h4 class="anchored" data-anchor-id="characteristics-of-an-idol">Characteristics of an idol</h4>
+<section id="idol-based-personal-characteristics" class="level4">
+<h4 class="anchored" data-anchor-id="idol-based-personal-characteristics">Idol-based (Personal characteristics):</h4>
 <ul>
 <li><p>Gender</p></li>
 <li><p>Age</p></li>
@@ -221,7 +221,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <iframe height="400" width="100%" frameborder="no" src="https://licnim.shinyapps.io/ig_generator/" <="" iframe="">
 <div id="quarto-navigation-envelope" class="hidden">
-<p><span class="hidden" data-render-id="quarto-int-sidebar-title">licnim.github.io</span> <span class="hidden" data-render-id="quarto-int-navbar-title">licnim.github.io</span> <span class="hidden" data-render-id="quarto-int-navbar:About">About</span> <span class="hidden" data-render-id="quarto-int-navbar:/index.html">/index.html</span> <span class="hidden" data-render-id="quarto-int-navbar:Project Page">Project Page</span> <span class="hidden" data-render-id="quarto-int-navbar:/project.html">/project.html</span> <span class="hidden" data-render-id="quarto-int-navbar:Week 1 to 9">Week 1 to 9</span> <span class="hidden" data-render-id="quarto-int-navbar:/w1w9.html">/w1w9.html</span> <span class="hidden" data-render-id="quarto-int-navbar:Bored?">Bored?</span> <span class="hidden" data-render-id="quarto-int-navbar:/fun.html">/fun.html</span></p>
+<p><span class="hidden" data-render-id="quarto-int-sidebar-title">licnim.github.io</span> <span class="hidden" data-render-id="quarto-int-navbar-title">licnim.github.io</span> <span class="hidden" data-render-id="quarto-int-navbar:Project Page">Project Page</span> <span class="hidden" data-render-id="quarto-int-navbar:/project.html">/project.html</span> <span class="hidden" data-render-id="quarto-int-navbar:Week 1 to 9">Week 1 to 9</span> <span class="hidden" data-render-id="quarto-int-navbar:/w1w9.html">/w1w9.html</span> <span class="hidden" data-render-id="quarto-int-navbar:Bored?">Bored?</span> <span class="hidden" data-render-id="quarto-int-navbar:/fun.html">/fun.html</span></p>
 </div>
 <div id="quarto-meta-markdown" class="hidden">
 <p><span class="hidden" data-render-id="quarto-metatitle">licnim.github.io - What’s in a (user)name?</span> <span class="hidden" data-render-id="quarto-twittercardtitle">licnim.github.io - What’s in a (user)name?</span> <span class="hidden" data-render-id="quarto-ogcardtitle">licnim.github.io - What’s in a (user)name?</span> <span class="hidden" data-render-id="quarto-metasitename">licnim.github.io</span> <span class="hidden" data-render-id="quarto-twittercarddesc">A two-part analysis of k-pop idols’ Instagram follower counts and a derivative interactive app.</span> <span class="hidden" data-render-id="quarto-ogcardddesc">A two-part analysis of k-pop idols’ Instagram follower counts and a derivative interactive app.</span></p>

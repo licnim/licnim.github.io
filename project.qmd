@@ -39,9 +39,28 @@ data <- read_csv("kpop_idol_followers.csv")
 
 ```
 
-### Variables analysed
 
-#### Characteristics of a username
+```{r, include=FALSE}
+options(scipen = 999)
+library(tidyverse)
+library(scales)
+library(ggdark)
+data <- read_csv("kpop_idol_followers.csv")
+```
+
+
+Let us first examine our independent variable, the number of followers, before exploring the dependent variables: 
+```{r, echo = FALSE, results=FALSE, message=FALSE}
+ggplot(data, aes(x = Followers)) + geom_boxplot() + dark_theme_gray() + theme(plot.background = element_rect(fill = "grey10")) + labs(title = "Plot of Number of Followers on Idols' Instagram Accounts (n = 406)", x = "Followers") + theme(axis.text.y = element_blank(), axis.ticks.y = element_blank()) +
+  scale_x_continuous(
+    labels = label_number(scale_cut = cut_short_scale())
+  )
+```
+As observed, we have a relatively small sample size in comparison to the large range of followers. For ease of visuals while plotting graphs and because comparisons of number of followers, rather than their individual counts, are more important in my analysis, much of my graphs will be on the logarithmic log2 scale. 
+
+Now, moving on the dependent variables, I have elected to split them into two categories: username-based or idol-based. 
+
+#### Username-based (Characteristics of a username):
 
 -   Length (in characters)
 
@@ -53,7 +72,7 @@ data <- read_csv("kpop_idol_followers.csv")
 
 -   Identity-related words: inclusion of group name or stage name
 
-#### Characteristics of an idol
+#### Idol-based (Personal characteristics):
 
 -   Gender
 
@@ -66,6 +85,7 @@ data <- read_csv("kpop_idol_followers.csv")
 -   Company reputation
 
 
+
 ```{=html}
-<iframe height="400" width="100%" frameborder="no" src="https://licnim.shinyapps.io/ig_generator/" </iframe>
+<iframe height="400" width="100%" frameborder="no" src="https://licnim.shinyapps.io/ig_generator/"</iframe>
 ```
