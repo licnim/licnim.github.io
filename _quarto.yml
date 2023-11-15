@@ -5,8 +5,10 @@ website:
   title: "licnim.github.io"
   navbar:
     left:
-      - href: project.qmd
+      - href: index.qmd
         text: Project Page
+      - href: about.qmd
+        text: About Me
       - href: w1w9.qmd
         text: Week 1 to 9
       - href: fun.qmd

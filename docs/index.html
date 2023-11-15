@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>licnim.github.io - About</title>
+<title>licnim.github.io – What’s in a (user)name?</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -82,11 +82,11 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">Project Page</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./project.html" rel="" target="">
- <span class="menu-text">Project Page</span></a>
+    <a class="nav-link" href="./about.html" rel="" target="">
+ <span class="menu-text">About Me</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./w1w9.html" rel="" target="">
@@ -112,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#self-introduction" id="toc-self-introduction" class="nav-link active" data-scroll-target="#self-introduction">Self-introduction</a></li>
+  <li><a href="#optimising-a-username" id="toc-optimising-a-username" class="nav-link active" data-scroll-target="#optimising-a-username">Optimising a Username</a></li>
   </ul>
 </nav>
     </div>
@@ -121,7 +121,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">About</h1>
+<h1 class="title">What’s in a (user)name?</h1>
+<p class="subtitle lead">A two-part analysis of K-pop idols’ Instagram follower counts and a derivative interactive app.</p>
 </div>
 
 
@@ -136,17 +137,74 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="self-introduction" class="level2">
-<h2 class="anchored" data-anchor-id="self-introduction">Self-introduction</h2>
-<p>Hello, I’m Nic, a Year 1 student majoring in CNM.</p>
-<p>Here is a picture of a cat I drew:</p>
-<p><img src="images/ .JPG" class="img-fluid" width="855"></p>
-
-
+<p><img src="https://i.makeagif.com/media/3-12-2023/PYXzaa.gif" class="img-fluid"></p>
+<p><br>
+</p>
+<p>The key metric for an idol’s success is most often thought to be their fame. Where Instagram has become a hotspot for K-pop idols to communicate with fans, show off their brand sponsorships. and express themselves, follower counts have also become a quick way to quantify idols’ fame, and give an estimate of their popularity.</p>
+<p>But, how exactly do idols gain followers through their profiles?</p>
+<p><strong>My question is as such: What is the optimal Instagram profile for a K-pop idol to achieve the most number of followers?</strong></p>
+<p>Arguably, the most important part of an Instagram profile is the username.</p>
+<p>The maximum length of an Instagram username is 30 characters, within which one has the flexibility to put any letters, digits, and combinations of underscores and periods.</p>
+<p>I want to study how K-pop idols have made use of these restrictions to create their usernames, and from that, how the designs of their usernames might have affected their follower counts, alongside the influence of external factors, like gender, age, and years in the industry.</p>
+<p>I will ultimately deduce what characteristics are more likely to attract higher numbers of followers, and create a web app that lets one create a fake idol profile and generate an predicted amount of followers.</p>
+<section id="dataset-used" class="level4">
+<h4 class="anchored" data-anchor-id="dataset-used">Dataset used</h4>
+<p>“Kpop Idol Instagram Followers” retrieved from: <a href="https://www.kaggle.com/datasets/faisalamir/kpop-idol-followers">Faisal Amir on Kaggle</a></p>
+<p>Let us first examine our independent variable, the number of followers, before exploring the dependent variables:</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>As observed, we have a relatively small sample size in comparison to the large range of followers. For ease of visuals while plotting graphs and because comparisons of number of followers, rather than their individual counts, are more important in my analysis, much of my graphs will be on the logarithmic log2 scale without numbered axes.</p>
+<p>Now, moving on the dependent variables, I have elected to split them into two categories: username-based or idol-based.</p>
+</section>
+<section id="username-based-characteristics-of-a-username" class="level4">
+<h4 class="anchored" data-anchor-id="username-based-characteristics-of-a-username">Username-based (Characteristics of a username):</h4>
+<ul>
+<li><p>Length (in characters)</p></li>
+<li><p>Presence of and number of special symbols (periods (“.”), underscores(“_”), or both)</p></li>
+<li><p>Presence of and number of digits</p></li>
+<li><p>Verification-related words: “official”</p></li>
+<li><p>Identity-related words: inclusion of group name or stage name</p></li>
+</ul>
+</section>
+<section id="idol-based-personal-characteristics" class="level4">
+<h4 class="anchored" data-anchor-id="idol-based-personal-characteristics">Idol-based (Personal characteristics):</h4>
+<ul>
+<li><p>Gender</p></li>
+<li><p>Age</p></li>
+<li><p>Career length (in years)</p></li>
+<li><p>Nationality</p></li>
+<li><p>Company reputation</p></li>
+</ul>
+</section>
+<section id="optimising-a-username" class="level3">
+<h3 class="anchored" data-anchor-id="optimising-a-username">Optimising a Username</h3>
+<section id="length" class="level4">
+<h4 class="anchored" data-anchor-id="length">Length</h4>
+<p>An easy differentiating factor between usernames is their length. According to the categorisations of our data, medium length usernames between 8 to 17 characters long have the highest median follower count.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="digits-and-special-characters" class="level4">
+<h4 class="anchored" data-anchor-id="digits-and-special-characters">Digits and Special Characters</h4>
+<p>Naturally, the contents of the username play an important role as well. Numbers and punctuation marks are often used to stylize the username, add personality, or to differentiate the username from already occupied handles.</p>
+<iframe height="400" width="100%" frameborder="no" src="https://licnim.shinyapps.io/ig_generator/" <="" iframe="">
+<div id="quarto-navigation-envelope" class="hidden">
+<p><span class="hidden" data-render-id="quarto-int-sidebar-title">licnim.github.io</span> <span class="hidden" data-render-id="quarto-int-navbar-title">licnim.github.io</span> <span class="hidden" data-render-id="quarto-int-navbar:Project Page">Project Page</span> <span class="hidden" data-render-id="quarto-int-navbar:/index.html">/index.html</span> <span class="hidden" data-render-id="quarto-int-navbar:About Me">About Me</span> <span class="hidden" data-render-id="quarto-int-navbar:/about.html">/about.html</span> <span class="hidden" data-render-id="quarto-int-navbar:Week 1 to 9">Week 1 to 9</span> <span class="hidden" data-render-id="quarto-int-navbar:/w1w9.html">/w1w9.html</span> <span class="hidden" data-render-id="quarto-int-navbar:Bored?">Bored?</span> <span class="hidden" data-render-id="quarto-int-navbar:/fun.html">/fun.html</span></p>
+</div>
+<div id="quarto-meta-markdown" class="hidden">
+<p><span class="hidden" data-render-id="quarto-metatitle">licnim.github.io - What’s in a (user)name?</span> <span class="hidden" data-render-id="quarto-twittercardtitle">licnim.github.io - What’s in a (user)name?</span> <span class="hidden" data-render-id="quarto-ogcardtitle">licnim.github.io - What’s in a (user)name?</span> <span class="hidden" data-render-id="quarto-metasitename">licnim.github.io</span> <span class="hidden" data-render-id="quarto-twittercarddesc">A two-part analysis of K-pop idols’ Instagram follower counts and a derivative interactive app.</span> <span class="hidden" data-render-id="quarto-ogcardddesc">A two-part analysis of K-pop idols’ Instagram follower counts and a derivative interactive app.</span></p>
+</div>
+</section>
 </section>
 
 </main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+<script id = "quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -381,6 +439,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 </div> <!-- /content -->
 
+</body>
 
-
-</body></html>
+</html></iframe></section></section></main></div></body></html>
