@@ -21,8 +21,11 @@ I want to study how K-pop idols have made use of these restrictions to create th
 
 I will ultimately deduce what characteristics are more likely to attract higher numbers of followers, and create a web app that lets one create a fake idol profile and generate an predicted amount of followers.
 
-#### Dataset used
-"Kpop Idol Instagram Followers" retrieved from: [Faisal Amir on Kaggle](https://www.kaggle.com/datasets/faisalamir/kpop-idol-followers)
+The dataset I will be using is "Kpop Idol Instagram Followers" retrieved from: [Faisal Amir on Kaggle](https://www.kaggle.com/datasets/faisalamir/kpop-idol-followers)
+
+```{r setup, echo = FALSE, results=FALSE, message=FALSE}
+knitr::opts_chunk$set(echo = FALSE, results=FALSE, message=FALSE)
+```
 
 ```{r, include=FALSE}
 options(scipen = 999)
@@ -30,20 +33,22 @@ library(tidyverse)
 library(ggpmisc)
 library(scales)
 library(ggdark)
+library(eeptools)
 data <- read_csv("kpop_idol_followers.csv")
 ```
 
+Let us first examine our independent variable, the number of followers, before exploring the dependent variables:
 
-Let us first examine our independent variable, the number of followers, before exploring the dependent variables: 
 ```{r, echo = FALSE, results=FALSE, message=FALSE}
 ggplot(data, aes(x = Followers)) + geom_boxplot() + dark_theme_gray() + theme(plot.background = element_rect(fill = "grey10")) + labs(title = "Plot of Number of Followers on Idols' Instagram Accounts (n = 406)", x = "Followers") + theme(axis.text.y = element_blank(), axis.ticks.y = element_blank(), plot.title = element_text(size=16)) +
   scale_x_continuous(
     labels = label_number(scale_cut = cut_short_scale())
   )
 ```
-As observed, we have a relatively small sample size in comparison to the large range of followers. For ease of visuals while plotting graphs and because comparisons of number of followers, rather than their individual counts, are more important in my analysis, much of my graphs will be on the logarithmic log2 scale without numbered axes. 
 
-Now, moving on the dependent variables, I have elected to split them into two categories: username-based or idol-based. 
+As observed, we have a relatively small sample size in comparison to the large range of followers. For ease of visuals while plotting graphs and because comparisons of number of followers, rather than their individual counts, are more important in my analysis, much of my graphs will be on the logarithmic log2 scale without numbered axes.
+
+Now, moving on the dependent variables, I have elected to split them into two categories: username-based or idol-based.
 
 #### Username-based (Characteristics of a username):
 
@@ -65,8 +70,6 @@ Now, moving on the dependent variables, I have elected to split them into two ca
 
 -   Career length (in years)
 
--   Nationality
-
 -   Company reputation
 
 ### Optimising a Username
@@ -74,6 +77,7 @@ Now, moving on the dependent variables, I have elected to split them into two ca
 #### Length
 
 An easy differentiating factor between usernames is their length. According to the categorisations of our data, medium length usernames between 8 to 17 characters long have the highest median follower count.
+
 ```{r, echo = FALSE, results=FALSE, message=FALSE}
 data_length <- data %>% mutate( length = nchar(ig_name) )
 
@@ -96,7 +100,288 @@ ggplot(data_length) +
 
 #### Digits and Special Characters
 
-Naturally, the contents of the username play an important role as well. Numbers and punctuation marks are often used to stylize the username, add personality, or to differentiate the username from already occupied handles. 
+Naturally, the contents of the username play an important role as well. Numbers and punctuation marks are often used to stylize the username, add personality, or to differentiate the username from already occupied handles.
+
+Let us find out if using more of these characters lead to more followers:
+
+1.  Numbers
+
+```{r, echo = FALSE, results=FALSE, message=FALSE}
+data_numbers <- data %>% mutate(number_of_numbers = str_count(data$ig_name, "\\d"))
+ggplot(data_numbers) + 
+  aes (y = number_of_numbers, x = Followers, group = number_of_numbers, fill = factor(number_of_numbers), alpha = 0.5) +
+  geom_boxplot() +
+  scale_x_continuous(trans='log2') +
+  labs(title = "Plot of Follower Count against Number of Digits in Username", x = "Followers", y = "Number of Digits") +
+  dark_theme_gray() +
+  theme(plot.background = element_rect(fill = "grey10"),
+        axis.text.x = element_blank(),
+        #axis.ticks.x = element_blank(),
+        plot.title = element_text(size=16),
+        plot.margin = unit(c(1,1,1,1), "cm"),
+        legend.position = "none")
+
+```
+
+2.  Underscores
+
+::: panel-tabset
+#### Box Plot
+
+```{r}
+
+data_underscore <- data %>% mutate(number_of_underscores = str_count(data$ig_name, "_"))
+
+ggplot(data_underscore) + 
+  aes (y = number_of_underscores, x = Followers, group = number_of_underscores, fill = factor(number_of_underscores), alpha = 0.5) +
+  geom_boxplot() +
+  scale_x_continuous(trans='log2') +
+  labs(title = "Plot of Follower Count against Number of Underscores in Username", x = "Followers", y = "Number of Underscores") +
+  dark_theme_gray() +
+  theme(plot.background = element_rect(fill = "grey10"),
+        axis.text.x = element_blank(),
+        #axis.ticks.x = element_blank(),
+        plot.title = element_text(size=14),
+        plot.margin = unit(c(1,1,1,1), "cm"),
+        legend.position = "none")
+
+
+```
+
+#### Line Plot
+
+```{r}
+ggplot (data_underscore) +
+  aes ( y = Followers, 
+        x = number_of_underscores) +
+  geom_point()+
+  labs(title = "Plot of Number of Underscores in Username against Follower Count", x = "Number of Underscores", y = "Followers") +
+  dark_theme_gray() +
+  theme(plot.background = element_rect(fill = "grey10"),
+        axis.text.y = element_blank(),
+        #axis.ticks.x = element_blank(),
+        plot.title = element_text(size=14),
+        plot.margin = unit(c(1,1,1,1), "cm"),
+        legend.position = "none")+
+        scale_y_continuous(trans = 'log2')+
+  geom_smooth(method=lm, se=FALSE, color = "#375A7F")
+```
+:::
+
+3.  Periods
+
+```{r}
+data_period <- data %>% mutate(number_of_periods = str_count(data$ig_name, "\\."))
+
+ggplot(data_period) + 
+  aes (y = number_of_periods, x = Followers, group = number_of_periods, fill = factor(number_of_periods), alpha = 0.5) +
+  geom_boxplot() +
+  scale_x_continuous(trans='log2') +
+  labs(title = "Plot of Follower Count against Number of Periods in Username", x = "Followers", y = "Number of Periods") +
+  scale_y_continuous(breaks=c(0,1,2)) +
+  dark_theme_gray() +
+  theme(plot.background = element_rect(fill = "grey10"),
+        axis.text.x = element_blank(),
+        #axis.ticks.x = element_blank(),
+        plot.title = element_text(size=14),
+        plot.margin = unit(c(1,1,1,1), "cm"),
+        legend.position = "none")
+```
+
+#### Keywords
+
+Lastly, how accurately one's username portrays their idol persona may also play a part in accruing followers. I hence look at several variations of showing one's identity in usernames.
+
+```{r}
+data_texts <- data %>% mutate(
+  
+  contains_official = as.logical(str_count(data$ig_name, "official")),
+  contains_group_name = str_detect(data$ig_name, tolower(str_replace_all((data$Group), "[[:punct:]]", ""))),
+  contains_stage_name = str_detect(data$ig_name, tolower(str_replace_all((data$Stage.Name), " ", "")))
+ 
+   )
+```
+
+
+1.  Legit-ness: The inclusion of "official"
+```{r}
+
+ggplot(data_texts) + 
+  aes (x = Followers, y = contains_official, fill = contains_official, group = contains_official, alpha = 0.5) +
+  geom_boxplot() +
+  scale_x_continuous(trans='log2') +
+  scale_y_discrete(labels = c("Without", "With")) +
+    labs(title = "Inclusion of “Official” against Follower Count", y = "") +
+  dark_theme_gray() +
+  theme(plot.background = element_rect(fill = "grey10"),
+        axis.text.x = element_blank(),
+        #axis.ticks.x = element_blank(),
+        plot.title = element_text(size=14),
+        plot.margin = unit(c(1,1,1,1), "cm"),
+        legend.position = "none")
+```
+
+2.  Loyalty: The inclusion of one's group name
+```{r}
+ggplot(data_texts) + 
+  aes (x = Followers, y = contains_group_name, fill = contains_group_name, group = contains_group_name, alpha = 0.5) +
+  geom_boxplot() +
+  scale_x_continuous(trans='log2') +
+  scale_y_discrete(labels = c("Without", "With")) +
+  labs(title = "Inclusion of Group Name against Follower Count", y = "") +
+  dark_theme_gray() +
+  theme(plot.background = element_rect(fill = "grey10"),
+        axis.text.x = element_blank(),
+        #axis.ticks.x = element_blank(),
+        plot.title = element_text(size=14),
+        plot.margin = unit(c(1,1,1,1), "cm"),
+        legend.position = "none")
+```
+
+3.  Legend: The inclusion of one's stage name
+```{r}
+ggplot(data_texts) + 
+  aes (x = Followers, y = contains_stage_name, fill = contains_stage_name, group = contains_stage_name, alpha = 0.5) +
+  geom_boxplot() +
+  scale_x_continuous(trans='log2') +
+  scale_y_discrete(labels = c("Without", "With")) +
+  labs(title = "Inclusion of Stage Name against Follower Count", y = "") +
+  dark_theme_gray() +
+  theme(plot.background = element_rect(fill = "grey10"),
+        axis.text.x = element_blank(),
+        #axis.ticks.x = element_blank(),
+        plot.title = element_text(size=14),
+        plot.margin = unit(c(1,1,1,1), "cm"),
+        legend.position = "none")
+```
+
+Perhaps, the reason why these identity features have little effect on follower counts is because idols simply do not need their usernames to express themselves. Rather, they are more well known by their real life traits that then translate into online fame. 
+
+## The Perfect Idol
+
+#### Gender and Age
+
+::: panel-tabset
+
+#### Gender
+```{r}
+
+
+ggplot(data) + 
+  aes (x = Followers, y = Gender.x, fill = Gender.x, group = Gender.x, alpha = 0.5) +
+  geom_boxplot() +
+  scale_x_continuous(trans='log2') +
+  scale_y_discrete(labels = c("Male", "Female")) +
+  labs(title = "Gender against Follower Count", y = "") +
+  dark_theme_gray() +
+  theme(plot.background = element_rect(fill = "grey10"),
+        axis.text.x = element_blank(),
+        #axis.ticks.x = element_blank(),
+        plot.title = element_text(size=14),
+        plot.margin = unit(c(1,1,1,1), "cm"),
+        legend.position = "none") 
+```
+#### Age
+```{r}
+
+data <- data %>% mutate( age = age_calc(data$Date.of.Birth, enddate = Sys.Date(), units = "years", precise = TRUE))
+
+ggplot (data) +
+  aes ( y = Followers, 
+        x = age) +
+  geom_point()+
+  labs(title = "Follower Count against Age", x = "Age (Years)", y = "Followers") +
+  dark_theme_gray() +
+  theme(plot.background = element_rect(fill = "grey10"),
+        axis.text.y = element_blank(),
+        #axis.ticks.x = element_blank(),
+        plot.title = element_text(size=14),
+        plot.margin = unit(c(1,1,1,1), "cm"),
+        legend.position = "none")+
+        scale_y_continuous(trans = 'log2')+
+   geom_smooth(se = FALSE, method = "gam", color = "#375A7F")
+```
+
+:::
+
+```{r}
+
+data <- data %>% mutate(foreign = ifelse(Country == "South Korea", "FALSE", "TRUE"))
+
+ggplot(data) + 
+  aes (x = Followers, y = foreign, fill = foreign, group = foreign, alpha = 0.5) +
+  geom_boxplot() +
+  scale_x_continuous(trans='log2') +
+  scale_y_discrete(labels = c("South Korean", "Other Nationality")) +
+  labs(title = "Nationality against Follower Count", y = "") +
+  dark_theme_gray() +
+  theme(plot.background = element_rect(fill = "grey10"),
+        axis.text.x = element_blank(),
+        #axis.ticks.x = element_blank(),
+        plot.title = element_text(size=14),
+        plot.margin = unit(c(1,1,1,1), "cm"),
+        legend.position = "none") 
+
+```
+
+```{r}
+data <- data %>% mutate(big4 = ifelse(Company == "SM"| Company == "JYP" | Company == "Big Hit"| Company == "YG", "TRUE", "FALSE"))
+
+ggplot(data) + 
+  aes (x = Followers, y = big4, fill = big4, group = big4, alpha = 0.5) +
+  geom_boxplot() +
+  scale_x_continuous(trans='log2') +
+  #scale_y_discrete(labels = c("South Korean", "Other Nationality")) +
+  labs(title = "Nationality against Follower Count", y = "") +
+  dark_theme_gray() +
+  theme(plot.background = element_rect(fill = "grey10"),
+        axis.text.x = element_blank(),
+        #axis.ticks.x = element_blank(),
+        plot.title = element_text(size=14),
+        plot.margin = unit(c(1,1,1,1), "cm"),
+        legend.position = "none") 
+
+
+```
+
+```{r}
+data <- data %>% mutate( career_length = age_calc(data$Debut, enddate = Sys.Date(), units = "years", precise = TRUE))
+
+ggplot (data) +
+  aes ( y = Followers, 
+        x = career_length) +
+  geom_point()+
+  labs(title = "Follower Count against Career Length", x = "Years since Debut", y = "Followers") +
+  dark_theme_gray() +
+  theme(plot.background = element_rect(fill = "grey10"),
+        axis.text.y = element_blank(),
+        #axis.ticks.x = element_blank(),
+        plot.title = element_text(size=14),
+        plot.margin = unit(c(1,1,1,1), "cm"),
+        legend.position = "none")+
+        scale_y_continuous(trans = 'log2')+
+   geom_smooth(se = FALSE, method = "gam", color = "#375A7F")
+```
+
+```{r}
+
+intra_big4 <- filter(data, big4 == TRUE)
+
+ggplot(intra_big4) + 
+  aes (x = Followers, y = Company, fill = Company, group = Company,alpha = 0.5) +
+  geom_boxplot() +
+  scale_x_continuous(trans='log2') +
+  #scale_y_discrete(labels = c("South Korean", "Other Nationality")) +
+  labs(title = "Company against Follower Count within the Big 4", y = "") +
+  dark_theme_gray() +
+  theme(plot.background = element_rect(fill = "grey10"),
+        axis.text.x = element_blank(),
+        #axis.ticks.x = element_blank(),
+        plot.title = element_text(size=14),
+        plot.margin = unit(c(1,1,1,1), "cm"),
+        legend.position = "none") 
+
+```
 
 
 ```{=html}

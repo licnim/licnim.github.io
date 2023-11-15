@@ -113,6 +113,7 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#optimising-a-username" id="toc-optimising-a-username" class="nav-link active" data-scroll-target="#optimising-a-username">Optimising a Username</a></li>
+  <li><a href="#the-perfect-idol" id="toc-the-perfect-idol" class="nav-link" data-scroll-target="#the-perfect-idol">The Perfect Idol</a></li>
   </ul>
 </nav>
     </div>
@@ -147,9 +148,7 @@ ul.task-list li input[type="checkbox"] {
 <p>The maximum length of an Instagram username is 30 characters, within which one has the flexibility to put any letters, digits, and combinations of underscores and periods.</p>
 <p>I want to study how K-pop idols have made use of these restrictions to create their usernames, and from that, how the designs of their usernames might have affected their follower counts, alongside the influence of external factors, like gender, age, and years in the industry.</p>
 <p>I will ultimately deduce what characteristics are more likely to attract higher numbers of followers, and create a web app that lets one create a fake idol profile and generate an predicted amount of followers.</p>
-<section id="dataset-used" class="level4">
-<h4 class="anchored" data-anchor-id="dataset-used">Dataset used</h4>
-<p>“Kpop Idol Instagram Followers” retrieved from: <a href="https://www.kaggle.com/datasets/faisalamir/kpop-idol-followers">Faisal Amir on Kaggle</a></p>
+<p>The dataset I will be using is “Kpop Idol Instagram Followers” retrieved from: <a href="https://www.kaggle.com/datasets/faisalamir/kpop-idol-followers">Faisal Amir on Kaggle</a></p>
 <p>Let us first examine our independent variable, the number of followers, before exploring the dependent variables:</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -158,7 +157,6 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <p>As observed, we have a relatively small sample size in comparison to the large range of followers. For ease of visuals while plotting graphs and because comparisons of number of followers, rather than their individual counts, are more important in my analysis, much of my graphs will be on the logarithmic log2 scale without numbered axes.</p>
 <p>Now, moving on the dependent variables, I have elected to split them into two categories: username-based or idol-based.</p>
-</section>
 <section id="username-based-characteristics-of-a-username" class="level4">
 <h4 class="anchored" data-anchor-id="username-based-characteristics-of-a-username">Username-based (Characteristics of a username):</h4>
 <ul>
@@ -175,7 +173,6 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Gender</p></li>
 <li><p>Age</p></li>
 <li><p>Career length (in years)</p></li>
-<li><p>Nationality</p></li>
 <li><p>Company reputation</p></li>
 </ul>
 </section>
@@ -193,6 +190,119 @@ ul.task-list li input[type="checkbox"] {
 <section id="digits-and-special-characters" class="level4">
 <h4 class="anchored" data-anchor-id="digits-and-special-characters">Digits and Special Characters</h4>
 <p>Naturally, the contents of the username play an important role as well. Numbers and punctuation marks are often used to stylize the username, add personality, or to differentiate the username from already occupied handles.</p>
+<p>Let us find out if using more of these characters lead to more followers:</p>
+<ol type="1">
+<li>Numbers</li>
+</ol>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<ol start="2" type="1">
+<li>Underscores</li>
+</ol>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Box Plot</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Line Plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ol start="3" type="1">
+<li>Periods</li>
+</ol>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="keywords" class="level4">
+<h4 class="anchored" data-anchor-id="keywords">Keywords</h4>
+<p>Lastly, how accurately one’s username portrays their idol persona may also play a part in accruing followers. I hence look at several variations of showing one’s identity in usernames.</p>
+<ol type="1">
+<li>Legit-ness: The inclusion of “official”</li>
+</ol>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<ol start="2" type="1">
+<li>Loyalty: The inclusion of one’s group name</li>
+</ol>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<ol start="3" type="1">
+<li>Legend: The inclusion of one’s stage name</li>
+</ol>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Perhaps, the reason why these identity features have little effect on follower counts is because idols simply do not need their usernames to express themselves. Rather, they are more well known by their real life traits that then translate into online fame.</p>
+</section>
+</section>
+<section id="the-perfect-idol" class="level2">
+<h2 class="anchored" data-anchor-id="the-perfect-idol">The Perfect Idol</h2>
+<section id="gender-and-age" class="level4">
+<h4 class="anchored" data-anchor-id="gender-and-age">Gender and Age</h4>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Gender</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Age</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
 <iframe height="400" width="100%" frameborder="no" src="https://licnim.shinyapps.io/ig_generator/" <="" iframe="">
 <div id="quarto-navigation-envelope" class="hidden">
 <p><span class="hidden" data-render-id="quarto-int-sidebar-title">licnim.github.io</span> <span class="hidden" data-render-id="quarto-int-navbar-title">licnim.github.io</span> <span class="hidden" data-render-id="quarto-int-navbar:Project Page">Project Page</span> <span class="hidden" data-render-id="quarto-int-navbar:/index.html">/index.html</span> <span class="hidden" data-render-id="quarto-int-navbar:About Me">About Me</span> <span class="hidden" data-render-id="quarto-int-navbar:/about.html">/about.html</span> <span class="hidden" data-render-id="quarto-int-navbar:Week 1 to 9">Week 1 to 9</span> <span class="hidden" data-render-id="quarto-int-navbar:/w1w9.html">/w1w9.html</span> <span class="hidden" data-render-id="quarto-int-navbar:Bored?">Bored?</span> <span class="hidden" data-render-id="quarto-int-navbar:/fun.html">/fun.html</span></p>
