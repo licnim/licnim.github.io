@@ -90,7 +90,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./w1w9.html" rel="" target="">
- <span class="menu-text">Week 1 to 9</span></a>
+ <span class="menu-text">Week 1 to 12</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./fun.html" rel="" target="">
@@ -186,6 +186,7 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<p>Rather than short, snappy or long, winding usernames, we can observe that usernames that are medium length are not only the most popular, but also the most successful usernames.</p>
 </section>
 <section id="digits-and-special-characters" class="level4">
 <h4 class="anchored" data-anchor-id="digits-and-special-characters">Digits and Special Characters</h4>
@@ -194,30 +195,48 @@ ul.task-list li input[type="checkbox"] {
 <ol type="1">
 <li>Numbers</li>
 </ol>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<ol start="2" type="1">
-<li>Underscores</li>
-</ol>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Box Plot</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Line Plot</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div class="cell">
 <div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>The differences in range between the box plot for each group of a number of digits inform us that the sample sizes differ greatly, and have possibly heavily skewed the medians for the groups. Hence, we can look at a line plot instead on the next tab.</p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="cell">
+<div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<p>Observing the almost straight line of best fit, we can now conclude that the number of digits in a username has little bearing on the number of followers.</p>
 </div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+</div>
+</div>
+<ol start="2" type="1">
+<li>Underscores</li>
+</ol>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Box Plot</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Line Plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<p>The box plots for this comparison is noticeably skewed by small sample size as well, as observed by the much smaller box (ie. the singular account) with seven underscores and the few accounts with six. In this case, comparing medians is again inaccurate; we can instead look to a line plot in the next tab.</p>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>This line plot now reveals the number of underscores in a username to be inversely correlated to their follower count.</p>
 </div>
 </div>
 </div>
@@ -226,71 +245,70 @@ ul.task-list li input[type="checkbox"] {
 </ol>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<p>As for periods, the box plots for each group is similar, but usernames with no periods have a marginally higher median follower count.</p>
+<p>We can conclude, in this section, that a medium length username without underscores or periods are likely to be popular usernames. The next section will focus on the actual words used in usernames.</p>
 </section>
 <section id="keywords" class="level4">
 <h4 class="anchored" data-anchor-id="keywords">Keywords</h4>
-<p>Lastly, how accurately one’s username portrays their idol persona may also play a part in accruing followers. I hence look at several variations of showing one’s identity in usernames.</p>
+<p>How accurately one’s username portrays their idol persona may also play a part in accruing followers. I hence look at several variations of showing one’s identity in usernames.</p>
 <ol type="1">
-<li>Legit-ness: The inclusion of “official”</li>
-</ol>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<ol start="2" type="1">
-<li>Loyalty: The inclusion of one’s group name</li>
+<li>Legitimacy: The inclusion of “official”</li>
 </ol>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<ol start="3" type="1">
-<li>Legend: The inclusion of one’s stage name</li>
+<p>Adding the word “official” to one’s username may help separate an idol’s account from their fanpages, but it remains an unpopular choice overall, possibly due to more robust verification methods like the check mark. Its unnecessariness may render usernames without the addition of “official” more popular.</p>
+<ol start="2" type="1">
+<li>Loyalty: The inclusion of one’s group name</li>
 </ol>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Perhaps, the reason why these identity features have little effect on follower counts is because idols simply do not need their usernames to express themselves. Rather, they are more well known by their real life traits that then translate into online fame.</p>
-</section>
-</section>
-<section id="the-perfect-idol" class="level2">
-<h2 class="anchored" data-anchor-id="the-perfect-idol">The Perfect Idol</h2>
-<section id="gender-and-age" class="level4">
-<h4 class="anchored" data-anchor-id="gender-and-age">Gender and Age</h4>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Gender</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Age</a></li></ul>
-<div class="tab-content">
-<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<p>Similarly, one’s group name helps to highlight one’s band and differentiate from other celebrities who may share names, a fairly common occurrence in Korea. However, as observed, these have little effect on follower counts.</p>
+<ol start="3" type="1">
+<li>Legend: The inclusion of one’s stage name</li>
+</ol>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-</div>
-<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<p>Similarly, the median follower counts of idols who use or omit their stage names in their usernames are comparable.</p>
+<p>We can conclude the analysis of usernames with the finding that, still, the factors that affect follower counts the most seem to be username length and conciseness, with special characters being generally disfavoured or having no effect and extraneous words like “official” being superfluous additions that may hinder, rather than attract, gaining followers.</p>
+<p>Perhaps, the reason why these identity features have little effect on follower counts is because idols simply do not need their usernames to explicitly mention who they are. Rather, they are more well known by their real life traits that then translate into online fame.</p>
+</section>
+</section>
+<section id="the-perfect-idol" class="level2">
+<h2 class="anchored" data-anchor-id="the-perfect-idol">The Perfect Idol</h2>
+<p>We hence move on to analysing other characteristics to find out which ones translate to the most Instagram fame.</p>
+<section id="gender-age-and-seniority" class="level4">
+<h4 class="anchored" data-anchor-id="gender-age-and-seniority">Gender, Age, and Seniority</h4>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Gender</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Age</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<p>Despite there being less male idols on Instagram, they have much higher median numbers of followers. This follows overall industry trends where fans of male artists generally outnumber female artists’, and male groups attain higher sales figures, whether in albums, concert tickets, or merchandise (Dong, 2020).</p>
 </div>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>The K-pop industry, having been steadily growing since its beginning in 1992, now has musicians across a wide age range (Romano, 2018). Although the few idols with the most followers overall are generally in the middle of the age range, the saturation in that age range with many more idols with much lower follower counts mean that generally, the oldest idols are still more likely to have more followers.</p>
+</div>
 </div>
 </div>
 <div class="cell">
@@ -298,14 +316,45 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="index_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<p>Indeed, a similar trend can be observed between follower counts and seniority as an idol, where the longer the average idol has been active in the industry, the higher their follower counts.</p>
+<p>Interestingly, a high point and dip can be observed consecutively between from 0 to 3 years of seniority. This can be attributed to the impact of the COVID-19 pandemic on the industry, where a slump severely impacted and postponed most idols’ debuts. Subsequently, these long-awaited debuts received much greater attention, represented in their high numbers of followers.</p>
+</section>
+<section id="nationality" class="level4">
+<h4 class="anchored" data-anchor-id="nationality">Nationality</h4>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<p>People also come from a diversity of locations to South Korea seek a career in their booming music industry. While South Korean idols are the majority, their foreign counterparts may stand out more precisely because they are a minority; their multilingual statuses as global idols garner them significantly more followers, especially those from their home countries, than the average South Korean idol.</p>
+</section>
+<section id="company" class="level4">
+<h4 class="anchored" data-anchor-id="company">Company</h4>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">The Big 4</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Within the Big 4</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>The final, and perhaps one of the most decisive factors in an idol’s fame online and offline, is their company. Kelley’s (2018) “Big 3 Hierarchy”, composed of SM Entertainment, YG Entertainment, and JYP Entertainment, are prestigious companies whose long legacies producing idols from the earliest generations of K-pop guarantee their newest groups as much, or even more, success. However, Kang (2018) notes the meteoric rise of a fourth player: Big Hit Entertainment, home to BTS, unsettling the traditional ranking of companies. I have hence included them into this order of notable companies to form a “Big 4”.</p>
+<p>The gap between the “Big 4” and other companies has been demonstrated in the plot, where the small number of idols belonging to the biggest companies enjoy much greater levels of support on Instagram through larger followings.</p>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>The plot of follower counts against their companies within the Big 4 reflects the rise of Big Hit Entertainment, as small as they are in size, as a disruptive force to the industry. It places the company and future debuts from them in good stead, considering the future of K-pop where wide social media presences are becoming as necessary as perfect stage performances.</p>
+</div>
+</div>
+</div>
 <iframe height="400" width="100%" frameborder="no" src="https://licnim.shinyapps.io/ig_generator/" <="" iframe="">
 <div id="quarto-navigation-envelope" class="hidden">
-<p><span class="hidden" data-render-id="quarto-int-sidebar-title">licnim.github.io</span> <span class="hidden" data-render-id="quarto-int-navbar-title">licnim.github.io</span> <span class="hidden" data-render-id="quarto-int-navbar:Project Page">Project Page</span> <span class="hidden" data-render-id="quarto-int-navbar:/index.html">/index.html</span> <span class="hidden" data-render-id="quarto-int-navbar:About Me">About Me</span> <span class="hidden" data-render-id="quarto-int-navbar:/about.html">/about.html</span> <span class="hidden" data-render-id="quarto-int-navbar:Week 1 to 9">Week 1 to 9</span> <span class="hidden" data-render-id="quarto-int-navbar:/w1w9.html">/w1w9.html</span> <span class="hidden" data-render-id="quarto-int-navbar:Bored?">Bored?</span> <span class="hidden" data-render-id="quarto-int-navbar:/fun.html">/fun.html</span></p>
+<p><span class="hidden" data-render-id="quarto-int-sidebar-title">licnim.github.io</span> <span class="hidden" data-render-id="quarto-int-navbar-title">licnim.github.io</span> <span class="hidden" data-render-id="quarto-int-navbar:Project Page">Project Page</span> <span class="hidden" data-render-id="quarto-int-navbar:/index.html">/index.html</span> <span class="hidden" data-render-id="quarto-int-navbar:About Me">About Me</span> <span class="hidden" data-render-id="quarto-int-navbar:/about.html">/about.html</span> <span class="hidden" data-render-id="quarto-int-navbar:Week 1 to 12">Week 1 to 12</span> <span class="hidden" data-render-id="quarto-int-navbar:/w1w9.html">/w1w9.html</span> <span class="hidden" data-render-id="quarto-int-navbar:Bored?">Bored?</span> <span class="hidden" data-render-id="quarto-int-navbar:/fun.html">/fun.html</span></p>
 </div>
 <div id="quarto-meta-markdown" class="hidden">
 <p><span class="hidden" data-render-id="quarto-metatitle">licnim.github.io - What’s in a (user)name?</span> <span class="hidden" data-render-id="quarto-twittercardtitle">licnim.github.io - What’s in a (user)name?</span> <span class="hidden" data-render-id="quarto-ogcardtitle">licnim.github.io - What’s in a (user)name?</span> <span class="hidden" data-render-id="quarto-metasitename">licnim.github.io</span> <span class="hidden" data-render-id="quarto-twittercarddesc">A two-part analysis of K-pop idols’ Instagram follower counts and a derivative interactive app.</span> <span class="hidden" data-render-id="quarto-ogcardddesc">A two-part analysis of K-pop idols’ Instagram follower counts and a derivative interactive app.</span></p>

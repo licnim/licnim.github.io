@@ -97,6 +97,7 @@ ggplot(data_length) +
   scale_fill_discrete(name = "Categories (characters)", labels = c("Short (0-8)", "Medium (9-17)", "Long (>17)")) +
   scale_alpha(guide = 'none')
 ```
+Rather than short, snappy or long, winding usernames, we can observe that usernames that are medium length are not only the most popular, but also the most successful usernames. 
 
 #### Digits and Special Characters
 
@@ -105,6 +106,10 @@ Naturally, the contents of the username play an important role as well. Numbers 
 Let us find out if using more of these characters lead to more followers:
 
 1.  Numbers
+
+::: panel-tabset
+#### Box Plot
+
 
 ```{r, echo = FALSE, results=FALSE, message=FALSE}
 data_numbers <- data %>% mutate(number_of_numbers = str_count(data$ig_name, "\\d"))
@@ -122,6 +127,30 @@ ggplot(data_numbers) +
         legend.position = "none")
 
 ```
+The differences in range between the box plot for each group of a number of digits inform us that the sample sizes differ greatly, and have possibly heavily skewed the medians for the groups. Hence, we can look at a line plot instead on the next tab.
+
+#### Line Plot
+
+```{r}
+ggplot (data_numbers) +
+  aes ( y = Followers, 
+        x = number_of_numbers) +
+  geom_point()+
+  labs(title = "Plot of Number of Digits in Username against Follower Count", x = "Number of Digits", y = "Followers") +
+  dark_theme_gray() +
+  theme(plot.background = element_rect(fill = "grey10"),
+        axis.text.y = element_blank(),
+        #axis.ticks.x = element_blank(),
+        plot.title = element_text(size=14),
+        plot.margin = unit(c(1,1,1,1), "cm"),
+        legend.position = "none")+
+        scale_y_continuous(trans = 'log2')+
+  geom_smooth(method=lm, se=FALSE, color = "#375A7F")
+```
+Observing the almost straight line of best fit, we can now conclude that the number of digits in a username has little bearing on the number of followers. 
+
+:::
+
 
 2.  Underscores
 
@@ -147,6 +176,7 @@ ggplot(data_underscore) +
 
 
 ```
+The box plots for this comparison is noticeably skewed by small sample size as well, as observed by the much smaller box (ie. the singular account) with seven underscores and the few accounts with six. In this case, comparing medians is again inaccurate; we can instead look to a line plot in the next tab.
 
 #### Line Plot
 
@@ -166,6 +196,8 @@ ggplot (data_underscore) +
         scale_y_continuous(trans = 'log2')+
   geom_smooth(method=lm, se=FALSE, color = "#375A7F")
 ```
+This line plot now reveals the number of underscores in a username to be inversely correlated to their follower count.
+
 :::
 
 3.  Periods
@@ -187,10 +219,14 @@ ggplot(data_period) +
         plot.margin = unit(c(1,1,1,1), "cm"),
         legend.position = "none")
 ```
+As for periods, the box plots for each group is similar, but usernames with no periods have a marginally higher median follower count.
+
+We can conclude, in this section, that a medium length username without underscores or periods are likely to be popular usernames. The next section will focus on the actual words used in usernames.
 
 #### Keywords
 
-Lastly, how accurately one's username portrays their idol persona may also play a part in accruing followers. I hence look at several variations of showing one's identity in usernames.
+How accurately one's username portrays their idol persona may also play a part in accruing followers. 
+I hence look at several variations of showing one's identity in usernames.
 
 ```{r}
 data_texts <- data %>% mutate(
@@ -203,7 +239,7 @@ data_texts <- data %>% mutate(
 ```
 
 
-1.  Legit-ness: The inclusion of "official"
+1.  Legitimacy: The inclusion of "official"
 ```{r}
 
 ggplot(data_texts) + 
@@ -220,6 +256,7 @@ ggplot(data_texts) +
         plot.margin = unit(c(1,1,1,1), "cm"),
         legend.position = "none")
 ```
+Adding the word "official" to one's username may help separate an idol's account from their fanpages, but it remains an unpopular choice overall, possibly due to more robust verification methods like the check mark. Its unnecessariness may render usernames without the addition of "official" more popular.
 
 2.  Loyalty: The inclusion of one's group name
 ```{r}
@@ -233,10 +270,11 @@ ggplot(data_texts) +
   theme(plot.background = element_rect(fill = "grey10"),
         axis.text.x = element_blank(),
         #axis.ticks.x = element_blank(),
-        plot.title = element_text(size=14),
+        plot.title = element_text(size=13),
         plot.margin = unit(c(1,1,1,1), "cm"),
         legend.position = "none")
 ```
+Similarly, one's group name helps to highlight one's band and differentiate from other celebrities who may share names, a fairly common occurrence in Korea. However, as observed, these have little effect on follower counts.  
 
 3.  Legend: The inclusion of one's stage name
 ```{r}
@@ -254,12 +292,17 @@ ggplot(data_texts) +
         plot.margin = unit(c(1,1,1,1), "cm"),
         legend.position = "none")
 ```
+Similarly, the median follower counts of idols who use or omit their stage names in their usernames are comparable.
 
-Perhaps, the reason why these identity features have little effect on follower counts is because idols simply do not need their usernames to express themselves. Rather, they are more well known by their real life traits that then translate into online fame. 
+We can conclude the analysis of usernames with the finding that, still, the factors that affect follower counts the most seem to be username length and conciseness, with special characters being generally disfavoured or having no effect and extraneous words like "official" being superfluous additions that may hinder, rather than attract, gaining followers.
+
+Perhaps, the reason why these identity features have little effect on follower counts is because idols simply do not need their usernames to explicitly mention who they are. Rather, they are more well known by their real life traits that then translate into online fame. 
 
 ## The Perfect Idol
 
-#### Gender and Age
+We hence move on to analysing other characteristics to find out which ones translate to the most Instagram fame.
+
+#### Gender, Age, and Seniority
 
 ::: panel-tabset
 
@@ -281,9 +324,15 @@ ggplot(data) +
         plot.margin = unit(c(1,1,1,1), "cm"),
         legend.position = "none") 
 ```
+Despite there being less male idols on Instagram, they have much higher median numbers of followers. This follows overall industry trends where fans of male artists generally outnumber female artists', and male groups attain higher sales figures, whether in albums, concert tickets, or merchandise (Dong, 2020). 
+
 #### Age
 ```{r}
+data$Date.of.Birth <- str_replace(data$Date.of.Birth, "/", "-")
+data$Date.of.Birth <- as.Date(data$Date.of.Birth)
+```
 
+```{r}
 data <- data %>% mutate( age = age_calc(data$Date.of.Birth, enddate = Sys.Date(), units = "years", precise = TRUE))
 
 ggplot (data) +
@@ -298,11 +347,35 @@ ggplot (data) +
         plot.title = element_text(size=14),
         plot.margin = unit(c(1,1,1,1), "cm"),
         legend.position = "none")+
+        scale_y_continuous(trans = 'log2') +
+        geom_smooth(se = FALSE, method = "gam", color = "#375A7F")
+```
+The K-pop industry, having been steadily growing since its beginning in 1992, now has musicians across a wide age range (Romano, 2018). Although the few idols with the most followers overall are generally in the middle of the age range, the saturation in that age range with many more idols with much lower follower counts mean that generally, the oldest idols are still more likely to have more followers. 
+:::
+
+```{r}
+data <- data %>% mutate( career_length = age_calc(data$Debut, enddate = Sys.Date(), units = "years", precise = TRUE))
+
+ggplot (data) +
+  aes ( y = Followers, 
+        x = career_length) +
+  geom_point()+
+  labs(title = "Follower Count against Career Length", x = "Years since Debut", y = "Followers") +
+  dark_theme_gray() +
+  theme(plot.background = element_rect(fill = "grey10"),
+        axis.text.y = element_blank(),
+        #axis.ticks.x = element_blank(),
+        plot.title = element_text(size=14),
+        plot.margin = unit(c(1,1,1,1), "cm"),
+        legend.position = "none")+
         scale_y_continuous(trans = 'log2')+
    geom_smooth(se = FALSE, method = "gam", color = "#375A7F")
 ```
+Indeed, a similar trend can be observed between follower counts and seniority as an idol, where the longer the average idol has been active in the industry, the higher their follower counts. 
 
-:::
+Interestingly, a high point and dip can be observed consecutively between from 0 to 3 years of seniority. This can be attributed to the impact of the COVID-19 pandemic on the industry, where a slump severely impacted and postponed most idols' debuts. Subsequently, these long-awaited debuts received much greater attention, represented in their high numbers of followers.
+
+#### Nationality
 
 ```{r}
 
@@ -323,7 +396,13 @@ ggplot(data) +
         legend.position = "none") 
 
 ```
+People also come from a diversity of locations to South Korea seek a career in their booming music industry. While South Korean idols are the majority, their foreign counterparts may stand out more precisely because they are a minority; their multilingual statuses as global idols garner them significantly more followers, especially those from their home countries, than the average South Korean idol. 
 
+#### Company
+
+::: panel-tabset
+
+#### The Big 4
 ```{r}
 data <- data %>% mutate(big4 = ifelse(Company == "SM"| Company == "JYP" | Company == "Big Hit"| Company == "YG", "TRUE", "FALSE"))
 
@@ -331,8 +410,8 @@ ggplot(data) +
   aes (x = Followers, y = big4, fill = big4, group = big4, alpha = 0.5) +
   geom_boxplot() +
   scale_x_continuous(trans='log2') +
-  #scale_y_discrete(labels = c("South Korean", "Other Nationality")) +
-  labs(title = "Nationality against Follower Count", y = "") +
+  scale_y_discrete(labels = c("Other Company", "Big 4 Company")) +
+  labs(title = "Company against Follower Count", y = "") +
   dark_theme_gray() +
   theme(plot.background = element_rect(fill = "grey10"),
         axis.text.x = element_blank(),
@@ -343,26 +422,11 @@ ggplot(data) +
 
 
 ```
+The final, and perhaps one of the most decisive factors in an idol's fame online and offline, is their company. Kelley's (2018) "Big 3 Hierarchy", composed of SM Entertainment, YG Entertainment, and JYP Entertainment, are prestigious companies whose long legacies producing idols from the earliest generations of K-pop guarantee their newest groups as much, or even more, success. However, Kang (2018) notes the meteoric rise of a fourth player: Big Hit Entertainment, home to BTS, unsettling the traditional ranking of companies. I have hence included them into this order of notable companies to form a "Big 4". 
 
-```{r}
-data <- data %>% mutate( career_length = age_calc(data$Debut, enddate = Sys.Date(), units = "years", precise = TRUE))
+The gap between the "Big 4" and other companies has been demonstrated in the plot, where the small number of idols belonging to the biggest companies enjoy much greater levels of support on Instagram through larger followings. 
 
-ggplot (data) +
-  aes ( y = Followers, 
-        x = career_length) +
-  geom_point()+
-  labs(title = "Follower Count against Career Length", x = "Years since Debut", y = "Followers") +
-  dark_theme_gray() +
-  theme(plot.background = element_rect(fill = "grey10"),
-        axis.text.y = element_blank(),
-        #axis.ticks.x = element_blank(),
-        plot.title = element_text(size=14),
-        plot.margin = unit(c(1,1,1,1), "cm"),
-        legend.position = "none")+
-        scale_y_continuous(trans = 'log2')+
-   geom_smooth(se = FALSE, method = "gam", color = "#375A7F")
-```
-
+#### Within the Big 4
 ```{r}
 
 intra_big4 <- filter(data, big4 == TRUE)
@@ -382,6 +446,9 @@ ggplot(intra_big4) +
         legend.position = "none") 
 
 ```
+The plot of follower counts against their companies within the Big 4 reflects the rise of Big Hit Entertainment, as small as they are in size, as a disruptive force to the industry. It places the company and future debuts from them in good stead, considering the future of K-pop where wide social media presences are becoming as necessary as perfect stage performances.
+
+:::
 
 
 ```{=html}
