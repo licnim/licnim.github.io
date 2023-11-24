@@ -466,6 +466,8 @@ Head to the Web App tab to put your newfound knowledge of Instagram influencing'
 
 ## Bibliography
 
+Amir, F. (2023, July). Kpop Idol Instagram Followers. *Kaggle*. <https://www.kaggle.com/datasets/faisalamir/kpop-idol-followers>
+
 Dong, S. (2020, September 26). Do K-pop boy bands outperform girl groups? *The Korea Times*. <https://www.koreatimes.co.kr/www/art/2023/11/732_289674.html>
 
 Jeon, Y. (2022, June 1). SM출신이 만든 하이브 여돌, 남미 겨냥한 CJ 보이그룹...몰려오는 대기업 '신인 아이돌'. *Joongang Daily*. <https://www.joongang.co.kr/article/25075858>
