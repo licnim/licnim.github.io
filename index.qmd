@@ -459,17 +459,15 @@ ggplot(intra_big4) +
 The plot of follower counts against their companies within the Big 4 reflects the rise of Big Hit Entertainment, as small as they are in size, as a disruptive force to the industry. It places the company and future debuts from them in good stead, considering the future of K-pop where wide social media presences are becoming as necessary as perfect stage performances.
 :::
 
-## Interactive Web App
+## Conclusion 
+Lorem Ipsum
 
-```{=html}
-<iframe height="400" width="100%" frameborder="no" src="https://licnim.shinyapps.io/ig_generator/"</iframe>
-```
-#### Bibliography
+## Bibliography
 
-Dong, S. (2020, September 26). Do K-pop boy bands outperform girl groups? *The Korea Times*. https://www.koreatimes.co.kr/www/art/2023/11/732_289674.html
+Dong, S. (2020, September 26). Do K-pop boy bands outperform girl groups? *The Korea Times*. <https://www.koreatimes.co.kr/www/art/2023/11/732_289674.html>
 
-Jeon, Y. (2022, June 1). SM출신이 만든 하이브 여돌, 남미 겨냥한 CJ 보이그룹...몰려오는 대기업 '신인 아이돌'. *Joongang Daily*. https://www.joongang.co.kr/article/25075858
+Jeon, Y. (2022, June 1). SM출신이 만든 하이브 여돌, 남미 겨냥한 CJ 보이그룹...몰려오는 대기업 '신인 아이돌'. *Joongang Daily*. <https://www.joongang.co.kr/article/25075858>
 
-Kang, H. (2018, January 11). Rise of K-pop---Comparable to 1960s 'British Invasion'? *The Korea Times*. https://www.koreatimes.co.kr/www/art/2023/11/398_242315.html
+Kang, H. (2018, January 11). Rise of K-pop---Comparable to 1960s 'British Invasion'? *The Korea Times*. <https://www.koreatimes.co.kr/www/art/2023/11/398_242315.html>
 
-Lee, D. (2010, December 28). 3大 기획사 '전성시대'... 내년에도 계속될까. *Munhwa Ilbo*. https://www.munhwa.com/news/view.html?no=20101228010325303020070
+Lee, D. (2010, December 28). 3大 기획사 '전성시대'... 내년에도 계속될까. *Munhwa Ilbo*. <https://www.munhwa.com/news/view.html?no=20101228010325303020070>

@@ -6,13 +6,14 @@ website:
   navbar:
     left:
       - href: index.qmd
-        text: Project Page
-      - href: about.qmd
-        text: About Me
+        text: Data Story
+      - href: fun.qmd
+        text: Web App
       - href: w1w9.qmd
         text: Week 1 to 13
-      - href: fun.qmd
-        text: Bored?
+      - href: about.qmd
+        text: About Me
+
        
 
 format:

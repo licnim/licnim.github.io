@@ -3,6 +3,8 @@ format: html
 editor: visual
 ---
 
+For a full-screen view, [click here!](https://licnim.shinyapps.io/ig_generator/)
+
 ```{=html}
-<iframe frameborder="0" scrolling="no" src="https://mczak.com/code/sudoku/suframe/" style="border:0px solid #eee; overflow:hidden; width:400px; height:500px;" width="400"></iframe>
+<iframe height="400" width="100%" frameborder="no" src="https://licnim.shinyapps.io/ig_generator/"</iframe>
 ```
